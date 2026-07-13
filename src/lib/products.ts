@@ -1,0 +1,63 @@
+import coxinha from "@/assets/coxinha.png.asset.json";
+import bolinho from "@/assets/bolinho-queijo.png.asset.json";
+import travesseiro from "@/assets/travesseiro-presunto-queijo.png.asset.json";
+import enroladinho from "@/assets/enroladinho-salsicha.png.asset.json";
+
+export type Product = {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  unit: string;
+};
+
+export const products: Product[] = [
+  {
+    id: "coxinha-frango",
+    name: "Coxinha de Frango",
+    description: "Massa leve e sequinha com recheio cremoso de frango desfiado.",
+    price: 55,
+    image: coxinha.url,
+    unit: "Pacote 1kg • 25 unidades",
+  },
+  {
+    id: "bolinho-queijo",
+    name: "Bolinho de Queijo",
+    description: "Recheio cremoso e muito queijo derretido em cada mordida.",
+    price: 58,
+    image: bolinho.url,
+    unit: "Pacote 1kg • 25 unidades",
+  },
+  {
+    id: "travesseiro-presunto-queijo",
+    name: "Travesseiro Presunto e Queijo",
+    description: "Massa crocante recheada com presunto e queijo cremoso.",
+    price: 60,
+    image: travesseiro.url,
+    unit: "Pacote 1kg • 25 unidades",
+  },
+  {
+    id: "enroladinho-salsicha",
+    name: "Enroladinho de Salsicha",
+    description: "Clássico da festa: massa sequinha envolvendo salsicha suculenta.",
+    price: 55,
+    image: enroladinho.url,
+    unit: "Pacote 1kg • 25 unidades",
+  },
+];
+
+export const COMPANY = {
+  name: "Salgados & Churros Fast",
+  whatsappRaw: "5511961392248",
+  whatsappDisplay: "+55 11 96139-2248",
+  instagramUrl: "https://www.instagram.com/salgadosechurrosfast",
+  instagramHandle: "@salgadosechurrosfast",
+  address: "Rua Gabiroba, 83 – Jardim Record, Taboão da Serra – SP",
+  addressShort: "Rua Gabiroba, 83 – Jardim Record",
+  mapsQuery: "Rua Gabiroba, 83, Jardim Record, Taboão da Serra",
+  hours: "Todos os dias • 09h às 20h",
+};
+
+export const formatBRL = (v: number) =>
+  v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
