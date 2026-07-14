@@ -2,6 +2,7 @@ import coxinha from "@/assets/coxinha.png.asset.json";
 import bolinho from "@/assets/bolinho-queijo.png.asset.json";
 import travesseiro from "@/assets/travesseiro-presunto-queijo.png.asset.json";
 import enroladinho from "@/assets/enroladinho-salsicha.png.asset.json";
+import churros from "@/assets/churros.png.asset.json";
 
 export type Product = {
   id: string;
@@ -10,6 +11,7 @@ export type Product = {
   price: number;
   image: string;
   unit: string;
+  category: "salgado" | "churros";
 };
 
 export const products: Product[] = [
@@ -20,6 +22,7 @@ export const products: Product[] = [
     price: 55,
     image: coxinha.url,
     unit: "Pacote 1kg • 25 unidades",
+    category: "salgado",
   },
   {
     id: "bolinho-queijo",
@@ -28,6 +31,7 @@ export const products: Product[] = [
     price: 58,
     image: bolinho.url,
     unit: "Pacote 1kg • 25 unidades",
+    category: "salgado",
   },
   {
     id: "travesseiro-presunto-queijo",
@@ -36,6 +40,7 @@ export const products: Product[] = [
     price: 60,
     image: travesseiro.url,
     unit: "Pacote 1kg • 25 unidades",
+    category: "salgado",
   },
   {
     id: "enroladinho-salsicha",
@@ -44,8 +49,21 @@ export const products: Product[] = [
     price: 55,
     image: enroladinho.url,
     unit: "Pacote 1kg • 25 unidades",
+    category: "salgado",
+  },
+  {
+    id: "churros-doce-de-leite",
+    name: "Churros com Doce de Leite",
+    description: "Churros artesanal crocante por fora, recheio generoso de doce de leite cremoso e polvilhado com canela e açúcar.",
+    price: 45,
+    image: churros.url,
+    unit: "Pacote • 20 unidades",
+    category: "churros",
   },
 ];
+
+export const salgados = products.filter((p) => p.category === "salgado");
+export const churrosProduct = products.find((p) => p.category === "churros")!;
 
 export const COMPANY = {
   name: "Salgados & Churros Fast",

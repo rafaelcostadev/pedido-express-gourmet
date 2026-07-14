@@ -34,44 +34,47 @@
   --color-brand-red-dark: var(--brand-red-dark);
   --color-brand-yellow: var(--brand-yellow);
   --color-brand-yellow-dark: var(--brand-yellow-dark);
-  --color-brand-brown: var(--brand-brown);
+  --color-brand-graphite: var(--brand-graphite);
+  --color-brand-graphite-soft: var(--brand-graphite-soft);
+  --color-brand-brown: var(--brand-graphite);
   --color-brand-cream: var(--brand-cream);
   --color-whatsapp: var(--whatsapp);
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --shadow-soft: 0 10px 40px -12px oklch(0 0 0 / 0.15);
-  --shadow-elevated: 0 25px 60px -20px oklch(0 0 0 / 0.25);
-  --shadow-brand: 0 20px 50px -20px oklch(0.62 0.22 30 / 0.45);
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --shadow-soft: 0 10px 40px -12px oklch(0 0 0 / 0.12);
+  --shadow-elevated: 0 30px 70px -25px oklch(0 0 0 / 0.28);
+  --shadow-brand: 0 20px 50px -20px oklch(0.58 0.22 27 / 0.45);
 }
 
 :root {
   --radius: 1rem;
-  --background: oklch(0.995 0.005 90);
-  --foreground: oklch(0.18 0.02 40);
+  --background: oklch(0.995 0 0);
+  --foreground: oklch(0.2 0.01 260);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.02 40);
+  --card-foreground: oklch(0.2 0.01 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.02 40);
+  --popover-foreground: oklch(0.2 0.01 260);
   --primary: oklch(0.58 0.22 27);
-  --primary-foreground: oklch(0.99 0.01 90);
-  --secondary: oklch(0.86 0.16 88);
-  --secondary-foreground: oklch(0.25 0.05 40);
-  --muted: oklch(0.96 0.01 80);
-  --muted-foreground: oklch(0.45 0.02 40);
-  --accent: oklch(0.88 0.16 88);
-  --accent-foreground: oklch(0.25 0.05 40);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.82 0.16 85);
+  --secondary-foreground: oklch(0.22 0.01 260);
+  --muted: oklch(0.965 0.003 260);
+  --muted-foreground: oklch(0.48 0.01 260);
+  --accent: oklch(0.82 0.16 85);
+  --accent-foreground: oklch(0.22 0.01 260);
   --destructive: oklch(0.55 0.24 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.9 0.01 80);
-  --input: oklch(0.9 0.01 80);
+  --border: oklch(0.92 0.003 260);
+  --input: oklch(0.92 0.003 260);
   --ring: oklch(0.58 0.22 27);
 
   --brand-red: oklch(0.58 0.22 27);
-  --brand-red-dark: oklch(0.45 0.2 27);
-  --brand-yellow: oklch(0.86 0.17 90);
-  --brand-yellow-dark: oklch(0.78 0.17 80);
-  --brand-brown: oklch(0.32 0.06 45);
-  --brand-cream: oklch(0.97 0.02 85);
+  --brand-red-dark: oklch(0.48 0.2 27);
+  --brand-yellow: oklch(0.86 0.15 85);
+  --brand-yellow-dark: oklch(0.76 0.15 78);
+  --brand-graphite: oklch(0.23 0.005 260);
+  --brand-graphite-soft: oklch(0.32 0.005 260);
+  --brand-cream: oklch(0.975 0.003 260);
   --whatsapp: oklch(0.68 0.17 150);
 }
 
@@ -86,10 +89,12 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4 {
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    font-weight: 800;
     letter-spacing: -0.02em;
   }
 }
@@ -105,17 +110,55 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   font-weight: 600;
   border-radius: 9999px;
   padding: 0.95rem 1.75rem;
-  background: linear-gradient(135deg, var(--brand-red), var(--brand-red-dark));
+  background: var(--brand-red);
   color: white;
   box-shadow: var(--shadow-brand);
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
   &:hover {
     transform: translateY(-2px);
+    filter: brightness(1.08);
+  }
+}
+
+@utility btn-yellow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.95rem 1.75rem;
+  background: var(--brand-yellow);
+  color: var(--brand-graphite);
+  box-shadow: 0 15px 40px -15px oklch(0.86 0.15 85 / 0.6);
+  transition: transform 0.25s ease, filter 0.25s ease;
+  &:hover {
+    transform: translateY(-2px);
     filter: brightness(1.05);
+  }
+}
+
+@utility btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.9rem 1.7rem;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  backdrop-filter: blur(6px);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  &:hover {
+    background: white;
+    color: var(--brand-graphite);
+    transform: translateY(-2px);
   }
 }
 
@@ -126,25 +169,25 @@
   gap: 0.5rem;
   font-weight: 600;
   border-radius: 9999px;
-  padding: 0.95rem 1.75rem;
+  padding: 0.9rem 1.7rem;
   background: white;
-  color: var(--brand-brown);
-  border: 1.5px solid var(--brand-brown);
+  color: var(--brand-graphite);
+  border: 1.5px solid var(--brand-graphite);
   transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
   &:hover {
     transform: translateY(-2px);
-    background: var(--brand-brown);
+    background: var(--brand-graphite);
     color: white;
   }
 }
 
 @utility surface-card {
   background: var(--card);
-  border-radius: 1.5rem;
+  border-radius: 1.75rem;
   box-shadow: var(--shadow-soft);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   &:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-elevated);
   }
 }
@@ -158,10 +201,10 @@
   animation: pulse-ring 2s infinite;
 }
 
-@keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+@keyframes ken-burns {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1.15); }
 }
-@utility float-y {
-  animation: float-y 6s ease-in-out infinite;
+@utility ken-burns {
+  animation: ken-burns 18s ease-in-out infinite alternate;
 }
