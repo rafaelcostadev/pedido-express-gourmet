@@ -1,79 +1,98 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ShoppingBag } from "lucide-react";
-import banner from "@/assets/banner-topo.png.asset.json";
+import { MessageCircle, ArrowDown } from "lucide-react";
+import hero from "@/assets/hero-bg.jpg.asset.json";
+import { COMPANY } from "@/lib/products";
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative pt-28 lg:pt-32 pb-16 lg:pb-24 overflow-hidden">
-      {/* soft background blobs */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-brand-yellow/40 blur-3xl" />
-        <div className="absolute top-40 -right-24 h-96 w-96 rounded-full bg-brand-red/20 blur-3xl" />
+    <section
+      id="inicio"
+      className="relative min-h-[100svh] w-full flex items-center overflow-hidden text-white"
+    >
+      {/* Background image */}
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={hero.url}
+          alt="Festa em quintal ao entardecer com salgados e churros artesanais na mesa"
+          className="h-full w-full object-cover ken-burns"
+          loading="eager"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
       </div>
 
-      <div className="container-x grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div className="container-x pt-32 pb-16 lg:pt-40 lg:pb-24 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col gap-6"
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          className="max-w-3xl"
         >
-          <span className="inline-flex items-center gap-2 self-start rounded-full bg-white shadow-soft px-4 py-2 text-xs font-semibold uppercase tracking-widest text-brand-red">
-            <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse" />
-            Produção artesanal diária
-          </span>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] text-brand-brown">
-            Salgados e Churros que fazem <span className="text-brand-red">sucesso</span> em qualquer festa.
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.6 }}
+            className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur border border-white/20 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.25em]"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-yellow animate-pulse" />
+            Produção artesanal • Taboão da Serra
+          </motion.span>
+
+          <h1 className="mt-6 font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight">
+            Salgados que transformam qualquer festa em um{" "}
+            <span className="text-brand-yellow">momento inesquecível</span>.
           </h1>
-          <p className="text-lg text-brand-brown/70 max-w-xl leading-relaxed">
-            Ingredientes selecionados, produção artesanal e pedidos rápidos. Ideais para aniversários,
-            empresas, confraternizações e eventos — com retirada fácil em Taboão da Serra.
+
+          <p className="mt-6 text-lg sm:text-xl font-medium text-white/85 max-w-2xl leading-relaxed">
+            Produção artesanal • Ingredientes selecionados • Retirada rápida em Taboão da Serra.
           </p>
-          <div className="flex flex-wrap gap-3">
-            <a href="#produtos" className="btn-primary">
-              <ShoppingBag className="h-5 w-5" />
-              Fazer Pedido
+
+          <div className="mt-9 flex flex-wrap gap-3">
+            <a
+              href={`https://wa.me/${COMPANY.whatsappRaw}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary font-semibold"
+            >
+              <MessageCircle className="h-5 w-5" />
+              Peça pelo WhatsApp
             </a>
-            <a href="#produtos" className="btn-secondary">
+            <a href="#produtos" className="btn-ghost-light font-semibold">
               Ver Cardápio
-              <ArrowRight className="h-5 w-5" />
             </a>
           </div>
-          <div className="flex flex-wrap gap-6 pt-4 text-sm text-brand-brown/70">
-            <div>
-              <div className="font-display text-2xl text-brand-red">+10 anos</div>
-              tradição na região
-            </div>
-            <div className="w-px bg-border" />
-            <div>
-              <div className="font-display text-2xl text-brand-red">100%</div>
-              artesanal
-            </div>
-            <div className="w-px bg-border" />
-            <div>
-              <div className="font-display text-2xl text-brand-red">25un</div>
-              por pacote
-            </div>
+
+          {/* Trust indicators */}
+          <div className="mt-12 grid grid-cols-3 gap-6 max-w-xl">
+            {[
+              { n: "+10", l: "anos de tradição" },
+              { n: "100%", l: "artesanal" },
+              { n: "+5mil", l: "clientes satisfeitos" },
+            ].map((s) => (
+              <div key={s.l} className="border-l-2 border-brand-yellow/80 pl-3">
+                <div className="text-2xl sm:text-3xl font-extrabold text-brand-yellow leading-none">
+                  {s.n}
+                </div>
+                <div className="mt-1 text-[11px] sm:text-xs uppercase tracking-wider text-white/75 font-medium">
+                  {s.l}
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 }}
-          className="relative"
+        <motion.a
+          href="#produtos"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-white/70 hover:text-white transition"
+          aria-label="Rolar para o cardápio"
         >
-          <div className="absolute inset-4 bg-gradient-to-br from-brand-yellow to-brand-red/70 blur-2xl opacity-40 rounded-[3rem]" />
-          <div className="relative rounded-[2.5rem] overflow-hidden shadow-elevated">
-            <img
-              src={banner.url}
-              alt="Salgados artesanais Salgados e Churros Fast em uma mesa de festa"
-              className="w-full h-full object-cover"
-              loading="eager"
-              fetchPriority="high"
-            />
-          </div>
-        </motion.div>
+          <span className="text-[10px] uppercase tracking-[0.3em] font-semibold">Explorar</span>
+          <ArrowDown className="h-4 w-4 animate-bounce" />
+        </motion.a>
       </div>
     </section>
   );
