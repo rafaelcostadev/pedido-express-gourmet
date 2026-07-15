@@ -138,7 +138,7 @@ export function CartDrawer() {
                   <span className="text-2xl font-extrabold text-brand-graphite">{formatBRL(total)}</span>
                 </div>
                 <button
-                  onClick={() => checkoutWhatsApp({ name, phone, notes })}
+                  onClick={() => checkoutWhatsApp({ notes })}
                   className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp text-white font-bold px-6 py-4 text-base shadow-[0_15px_40px_-15px_oklch(0.68_0.17_150/0.7)] hover:brightness-110 hover:-translate-y-0.5 transition"
                 >
                   <MessageCircle className="h-5 w-5" />
