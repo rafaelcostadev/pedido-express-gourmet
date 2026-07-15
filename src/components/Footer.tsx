@@ -1,5 +1,5 @@
 import { Instagram, MapPin, Phone, Clock } from "lucide-react";
-import logo from "@/assets/logo.png.asset.json";
+const logoUrl = "/assets/logo.avif";
 import { COMPANY } from "@/lib/products";
 
 const links = [
