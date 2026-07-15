@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Plus } from "lucide-react";
+import { Plus, Snowflake } from "lucide-react";
 import { salgados, formatBRL } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 
@@ -55,6 +55,13 @@ export function Products() {
                   <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-red">
                     {p.unit}
                   </p>
+                  <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#FFF7D6] px-3 py-1.5 shadow-sm ring-1 ring-brand-yellow/40">
+                    <Snowflake className="h-3.5 w-3.5 text-brand-yellow shrink-0" strokeWidth={2.5} />
+                    <span className="text-[11px] leading-tight text-brand-graphite">
+                      <span className="font-bold">Vai congelado</span>
+                      <span className="text-brand-graphite-soft"> · Pronto para fritar</span>
+                    </span>
+                  </div>
                 </div>
                 <div className="flex items-center justify-between pt-2 border-t border-black/5">
                   <span className="text-2xl font-extrabold text-brand-graphite">{formatBRL(p.price)}</span>
