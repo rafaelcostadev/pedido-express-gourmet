@@ -208,3 +208,7 @@
 @utility ken-burns {
   animation: ken-burns 18s ease-in-out infinite alternate;
 }
+
+#lovable-badge {
+  display: none !important;
+}
