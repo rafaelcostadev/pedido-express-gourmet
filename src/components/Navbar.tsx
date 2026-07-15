@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, ShoppingBag, X } from "lucide-react";
-import logo from "@/assets/logo.png.asset.json";
+const logoUrl = "/assets/logo.avif";
 import { useCart } from "@/lib/cart";
 
 const links = [
