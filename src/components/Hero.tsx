@@ -12,7 +12,7 @@ export function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <img
-          src={hero.url}
+          src={heroUrl}
           alt="Festa em quintal ao entardecer com salgados e churros artesanais na mesa"
           className="h-full w-full object-cover ken-burns"
           loading="eager"
