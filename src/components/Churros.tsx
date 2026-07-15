@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Plus, Sparkles } from "lucide-react";
+import { Plus, Sparkles, Snowflake } from "lucide-react";
 import { churrosProduct, formatBRL } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 
@@ -18,8 +18,8 @@ export function Churros() {
 
       <div className="container-x relative grid lg:grid-cols-2 gap-14 items-center">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, rotate: -8 }}
-          whileInView={{ opacity: 1, scale: 1, rotate: -6 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9, ease: "easeOut" }}
           className="relative order-2 lg:order-1"
@@ -28,7 +28,7 @@ export function Churros() {
           <img
             src={churrosProduct.image}
             alt="Churros artesanal recheado com doce de leite"
-            className="relative w-full max-w-lg mx-auto drop-shadow-[0_25px_45px_rgba(0,0,0,0.55)]"
+            className="relative w-full max-w-[40rem] mx-auto drop-shadow-[0_25px_45px_rgba(0,0,0,0.55)]"
             loading="lazy"
           />
         </motion.div>
@@ -64,6 +64,14 @@ export function Churros() {
               </li>
             ))}
           </ul>
+
+          <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-brand-yellow/40 bg-white/5 px-4 py-3 max-w-lg">
+            <Snowflake className="h-6 w-6 text-brand-yellow shrink-0" />
+            <div className="leading-tight">
+              <div className="font-bold text-white">Vai congelado</div>
+              <div className="text-sm text-white/70">Pronto para fritar.</div>
+            </div>
+          </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <div>
