@@ -41,7 +41,7 @@ export function Navbar() {
       <div className="container-x flex items-center justify-between h-20 lg:h-24">
         <a href="#inicio" className="flex items-center" aria-label="Salgados e Churros Fast">
           <img
-            src={logo.url}
+            src={logoUrl}
             alt="Salgados e Churros Fast"
             className={`h-16 lg:h-20 w-auto transition ${dark ? "drop-shadow-lg" : ""}`}
             loading="eager"
@@ -114,7 +114,7 @@ export function Navbar() {
               className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white p-6 flex flex-col gap-6 shadow-elevated"
             >
               <div className="flex justify-between items-center">
-                <img src={logo.url} alt="" className="h-14 w-auto" />
+                <img src={logoUrl} alt="" className="h-14 w-auto" />
                 <button
                   onClick={() => setOpenMobile(false)}
                   aria-label="Fechar menu"
