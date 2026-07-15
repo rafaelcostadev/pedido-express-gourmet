@@ -11,6 +11,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -37,6 +38,7 @@ function Index() {
       <Footer />
       <CartDrawer />
       <WhatsAppFloat />
+      <ScrollToTop />
     </>
   );
 }
