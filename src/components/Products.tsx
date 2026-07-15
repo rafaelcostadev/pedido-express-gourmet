@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Plus } from "lucide-react";
+import { Plus, Snowflake } from "lucide-react";
 import { salgados, formatBRL } from "@/lib/products";
 import { useCart } from "@/lib/cart";
 
