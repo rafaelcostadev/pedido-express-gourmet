@@ -45,7 +45,7 @@ export function CTA() {
               <MessageCircle className="h-5 w-5" />
               Peça pelo WhatsApp
             </a>
-            <a href="#produtos" className="btn-ghost-light font-semibold">
+            <a href="#salgados" className="btn-ghost-light font-semibold">
               Ver Cardápio
             </a>
           </div>
