@@ -65,6 +65,14 @@ export function Churros() {
             ))}
           </ul>
 
+          <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-brand-yellow/40 bg-white/5 px-4 py-3 max-w-lg">
+            <Snowflake className="h-6 w-6 text-brand-yellow shrink-0" />
+            <div className="leading-tight">
+              <div className="font-bold text-white">Vai congelado</div>
+              <div className="text-sm text-white/70">Pronto para fritar.</div>
+            </div>
+          </div>
+
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <div>
               <div className="text-[11px] uppercase tracking-[0.25em] text-white/60 font-semibold">
