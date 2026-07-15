@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
-import cta from "@/assets/cta-bg.jpg.asset.json";
+const ctaUrl = "/assets/cta-bg.avif";
 import { COMPANY } from "@/lib/products";
 
 export function CTA() {
