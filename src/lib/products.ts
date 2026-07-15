@@ -2,7 +2,7 @@ import coxinha from "@/assets/coxinha.png.asset.json";
 import bolinho from "@/assets/bolinho-queijo.png.asset.json";
 import travesseiro from "@/assets/travesseiro-presunto-queijo.png.asset.json";
 import enroladinho from "@/assets/enroladinho-salsicha.png.asset.json";
-import churros from "@/assets/churros.png.asset.json";
+import churros from "@/assets/churros.avif.asset.json";
 
 export type Product = {
   id: string;
