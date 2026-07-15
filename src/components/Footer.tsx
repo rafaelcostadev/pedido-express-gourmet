@@ -4,7 +4,7 @@ import { COMPANY } from "@/lib/products";
 
 const links = [
   { href: "#inicio", label: "Início" },
-  { href: "#produtos", label: "Salgados" },
+  { href: "#salgados", label: "Salgados" },
   { href: "#churros", label: "Churros" },
   { href: "#como-funciona", label: "Como Funciona" },
   { href: "#sobre", label: "Sobre" },
