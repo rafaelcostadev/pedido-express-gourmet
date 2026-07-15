@@ -38,6 +38,7 @@ function Index() {
       <Footer />
       <CartDrawer />
       <WhatsAppFloat />
+      <ScrollToTop />
     </>
   );
 }
