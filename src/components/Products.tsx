@@ -6,7 +6,7 @@ import { useCart } from "@/lib/cart";
 export function Products() {
   const { add } = useCart();
   return (
-    <section id="produtos" className="py-24 lg:py-32 bg-white">
+    <section id="salgados" className="py-24 lg:py-32 bg-white">
       <div className="container-x">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -58,7 +58,7 @@ export function Hero() {
               <MessageCircle className="h-5 w-5" />
               Peça pelo WhatsApp
             </a>
-            <a href="#produtos" className="btn-ghost-light font-semibold">
+            <a href="#salgados" className="btn-ghost-light font-semibold">
               Ver Cardápio
             </a>
           </div>
@@ -83,7 +83,7 @@ export function Hero() {
         </motion.div>
 
         <motion.a
-          href="#produtos"
+          href="#salgados"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}

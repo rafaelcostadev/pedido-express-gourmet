@@ -6,7 +6,7 @@ import { useCart } from "@/lib/cart";
 
 const links = [
   { href: "#inicio", label: "Início" },
-  { href: "#produtos", label: "Salgados" },
+  { href: "#salgados", label: "Salgados" },
   { href: "#churros", label: "Churros" },
   { href: "#como-funciona", label: "Como Funciona" },
   { href: "#sobre", label: "Sobre" },
@@ -79,7 +79,7 @@ export function Navbar() {
             )}
           </button>
           <a
-            href="#produtos"
+            href="#salgados"
             className="hidden sm:inline-flex items-center gap-2 rounded-full bg-brand-red text-white px-5 py-2.5 font-semibold text-sm shadow-brand hover:brightness-110 hover:-translate-y-0.5 transition"
           >
             Peça Agora
@@ -135,7 +135,7 @@ export function Navbar() {
                   </a>
                 ))}
               </nav>
-              <a href="#produtos" onClick={() => setOpenMobile(false)} className="btn-primary mt-auto">
+              <a href="#salgados" onClick={() => setOpenMobile(false)} className="btn-primary mt-auto">
                 Peça Agora
               </a>
             </motion.aside>
