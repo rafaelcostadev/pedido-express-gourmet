@@ -2,7 +2,7 @@ import coxinha from "@/assets/coxinha.png.asset.json";
 import bolinho from "@/assets/bolinho-queijo.png.asset.json";
 import travesseiro from "@/assets/travesseiro-presunto-queijo.png.asset.json";
 import enroladinho from "@/assets/enroladinho-salsicha.png.asset.json";
-import churros from "@/assets/churros.png.asset.json";
+import churros from "@/assets/churros.avif.asset.json";
 
 export type Product = {
   id: string;
@@ -55,9 +55,9 @@ export const products: Product[] = [
     id: "churros-doce-de-leite",
     name: "Churros com Doce de Leite",
     description: "Churros artesanal crocante por fora, recheio generoso de doce de leite cremoso e polvilhado com canela e açúcar.",
-    price: 45,
+    price: 20.5,
     image: churros.url,
-    unit: "Pacote • 20 unidades",
+    unit: "Pacote • 25 unidades",
     category: "churros",
   },
 ];
