@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Heart, Leaf } from "lucide-react";
-import aboutImg from "@/assets/about.jpg.asset.json";
+const aboutUrl = "/assets/about.avif";
 
 export function About() {
   return (
