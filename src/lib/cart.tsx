@@ -55,7 +55,7 @@ type CartCtx = {
   dec: (id: string) => void;
   remove: (id: string) => void;
   clear: () => void;
-  checkoutWhatsApp: (data: { name: string; phone: string; notes: string }) => void;
+  checkoutWhatsApp: (data: { notes: string }) => void;
 };
 
 const Ctx = createContext<CartCtx | null>(null);
@@ -83,7 +83,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       dec: (id) => dispatch({ type: "dec", id }),
       remove: (id) => dispatch({ type: "remove", id }),
       clear: () => dispatch({ type: "clear" }),
-      checkoutWhatsApp: ({ name, phone, notes }) => {
+      checkoutWhatsApp: ({ notes }) => {
         const lines = [
           "Olá! Gostaria de fazer esse pedido:",
           "",
@@ -92,12 +92,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
           ),
           "",
           `Total: ${formatBRL(total)}`,
-          "",
-          `Nome: ${name || "-"}`,
-          `Telefone: ${phone || "-"}`,
-          notes ? `Observações: ${notes}` : "",
+          ...(notes && notes.trim()
+            ? ["", "📝 Observação:", notes.trim()]
+            : []),
         ]
-          .filter(Boolean)
+          .filter((l) => l !== undefined)
           .join("\n");
         const url = `https://wa.me/${COMPANY.whatsappRaw}?text=${encodeURIComponent(lines)}`;
         window.open(url, "_blank", "noopener,noreferrer");
