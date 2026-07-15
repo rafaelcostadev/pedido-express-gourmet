@@ -16,7 +16,7 @@ export function About() {
           <div className="absolute -inset-4 bg-brand-yellow/25 rounded-[2.5rem] blur-2xl -z-10" />
           <div className="rounded-[2rem] overflow-hidden shadow-elevated aspect-[4/5]">
             <img
-              src={aboutImg.url}
+              src={aboutUrl}
               alt="Empresária preparando salgados artesanais na cozinha de produção"
               className="w-full h-full object-cover"
               loading="lazy"
