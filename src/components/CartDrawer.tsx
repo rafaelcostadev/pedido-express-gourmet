@@ -6,8 +6,6 @@ import { formatBRL } from "@/lib/products";
 
 export function CartDrawer() {
   const { items, isOpen, close, inc, dec, remove, total, checkoutWhatsApp, count } = useCart();
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
 
   return (
@@ -123,26 +121,15 @@ export function CartDrawer() {
             {items.length > 0 && (
               <div className="border-t border-black/5 px-6 py-5 space-y-4 bg-white">
                 <div className="grid gap-2">
-                  <input
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Seu nome"
-                    aria-label="Seu nome"
-                    className="w-full rounded-xl bg-brand-cream/60 border border-transparent px-4 py-3 text-sm font-medium placeholder:text-brand-graphite/40 focus:outline-none focus:bg-white focus:border-brand-red/40 focus:ring-2 focus:ring-brand-red/20 transition"
-                  />
-                  <input
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="Telefone (opcional)"
-                    aria-label="Telefone"
-                    className="w-full rounded-xl bg-brand-cream/60 border border-transparent px-4 py-3 text-sm font-medium placeholder:text-brand-graphite/40 focus:outline-none focus:bg-white focus:border-brand-red/40 focus:ring-2 focus:ring-brand-red/20 transition"
-                  />
+                  <label className="text-xs font-bold text-brand-graphite">
+                    Alguma observação sobre seu pedido? (opcional)
+                  </label>
                   <textarea
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    placeholder="Observações (opcional)"
-                    aria-label="Observações"
-                    rows={2}
+                    placeholder="Ex.: separar os produtos por pacote, informar horário aproximado da retirada..."
+                    aria-label="Observação sobre o pedido"
+                    rows={3}
                     className="w-full rounded-xl bg-brand-cream/60 border border-transparent px-4 py-3 text-sm font-medium placeholder:text-brand-graphite/40 focus:outline-none focus:bg-white focus:border-brand-red/40 focus:ring-2 focus:ring-brand-red/20 resize-none transition"
                   />
                 </div>
