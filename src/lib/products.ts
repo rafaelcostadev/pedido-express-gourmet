@@ -55,9 +55,9 @@ export const products: Product[] = [
     id: "churros-doce-de-leite",
     name: "Churros com Doce de Leite",
     description: "Churros artesanal crocante por fora, recheio generoso de doce de leite cremoso e polvilhado com canela e açúcar.",
-    price: 45,
+    price: 20.5,
     image: churros.url,
-    unit: "Pacote • 20 unidades",
+    unit: "Pacote • 25 unidades",
     category: "churros",
   },
 ];
