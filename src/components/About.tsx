@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Heart, Leaf } from "lucide-react";
-import aboutImg from "@/assets/about.jpg.asset.json";
+const aboutUrl = "/assets/about.avif";
 
 export function About() {
   return (
@@ -16,7 +16,7 @@ export function About() {
           <div className="absolute -inset-4 bg-brand-yellow/25 rounded-[2.5rem] blur-2xl -z-10" />
           <div className="rounded-[2rem] overflow-hidden shadow-elevated aspect-[4/5]">
             <img
-              src={aboutImg.url}
+              src={aboutUrl}
               alt="Empresária preparando salgados artesanais na cozinha de produção"
               className="w-full h-full object-cover"
               loading="lazy"

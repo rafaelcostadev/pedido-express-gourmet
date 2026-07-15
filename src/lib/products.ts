@@ -1,8 +1,8 @@
-import coxinha from "@/assets/coxinha.png.asset.json";
-import bolinho from "@/assets/bolinho-queijo.png.asset.json";
-import travesseiro from "@/assets/travesseiro-presunto-queijo.png.asset.json";
-import enroladinho from "@/assets/enroladinho-salsicha.png.asset.json";
-import churros from "@/assets/churros.avif.asset.json";
+const coxinha = { url: "/assets/coxinha.avif" };
+const bolinho = { url: "/assets/bolinho-queijo.avif" };
+const travesseiro = { url: "/assets/travesseiro-presunto-queijo.avif" };
+const enroladinho = { url: "/assets/enroladinho-salsicha.avif" };
+const churros = { url: "/assets/churros.avif" };
 
 export type Product = {
   id: string;

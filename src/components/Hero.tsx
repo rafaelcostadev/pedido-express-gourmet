@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ArrowDown } from "lucide-react";
-import hero from "@/assets/hero-bg.jpg.asset.json";
+const heroUrl = "/assets/hero-bg.avif";
 import { COMPANY } from "@/lib/products";
 
 export function Hero() {
@@ -12,7 +12,7 @@ export function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <img
-          src={hero.url}
+          src={heroUrl}
           alt="Festa em quintal ao entardecer com salgados e churros artesanais na mesa"
           className="h-full w-full object-cover ken-burns"
           loading="eager"

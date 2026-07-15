@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
-import cta from "@/assets/cta-bg.jpg.asset.json";
+const ctaUrl = "/assets/cta-bg.avif";
 import { COMPANY } from "@/lib/products";
 
 export function CTA() {
@@ -8,7 +8,7 @@ export function CTA() {
     <section className="relative min-h-[70svh] flex items-center overflow-hidden text-white">
       <div className="absolute inset-0 -z-10">
         <img
-          src={cta.url}
+          src={ctaUrl}
           alt="Família reunida em festa de aniversário com salgados e churros"
           className="h-full w-full object-cover"
           loading="lazy"
