@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle, ArrowDown } from "lucide-react";
-import hero from "@/assets/hero-bg.jpg.asset.json";
+const heroUrl = "/assets/hero-bg.avif";
 import { COMPANY } from "@/lib/products";
 
 export function Hero() {
