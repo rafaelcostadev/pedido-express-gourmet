@@ -4,7 +4,7 @@ const aboutUrl = "/assets/about.avif";
 
 export function About() {
   return (
-    <section id="sobre" className="py-24 lg:py-32 bg-white">
+    <section id="sobre" className="py-20 lg:py-20 bg-white">
       <div className="container-x grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}

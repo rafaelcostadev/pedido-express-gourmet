@@ -18,7 +18,7 @@ export function CTA() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
       </div>
 
-      <div className="container-x py-20 lg:py-28 relative">
+      <div className="container-x py-20 lg:py-20 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

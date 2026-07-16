@@ -10,7 +10,7 @@ const items = [
 
 export function Differentials() {
   return (
-    <section className="py-24 lg:py-28 bg-white">
+    <section className="py-20 lg:py-20 bg-white">
       <div className="container-x">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

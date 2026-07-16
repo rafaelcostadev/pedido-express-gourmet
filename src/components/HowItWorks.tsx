@@ -10,7 +10,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="como-funciona" className="py-24 lg:py-32 bg-brand-cream/70">
+    <section id="como-funciona" className="py-20 lg:py-20 bg-brand-cream/70">
       <div className="container-x">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
