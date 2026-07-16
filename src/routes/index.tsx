@@ -5,6 +5,7 @@ import { Differentials } from "@/components/Differentials";
 import { Products } from "@/components/Products";
 import { Churros } from "@/components/Churros";
 import { HowItWorks } from "@/components/HowItWorks";
+import { FAQ, faqJsonLd } from "@/components/FAQ";
 import { About } from "@/components/About";
 import { CTA } from "@/components/CTA";
 import { Contact } from "@/components/Contact";
@@ -43,6 +44,10 @@ export const Route = createFileRoute("/")({
           ],
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(faqJsonLd),
+      },
     ],
   }),
 });
@@ -57,6 +62,7 @@ function Index() {
         <Products />
         <Churros />
         <HowItWorks />
+        <FAQ />
         <About />
         <CTA />
         <Contact />
