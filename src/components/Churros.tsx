@@ -8,7 +8,7 @@ export function Churros() {
   return (
     <section
       id="churros"
-      className="relative py-24 lg:py-32 overflow-hidden bg-brand-graphite text-white"
+      className="relative py-20 lg:py-20 overflow-hidden bg-brand-graphite text-white"
     >
       {/* subtle glow */}
       <div aria-hidden className="absolute inset-0 -z-0 pointer-events-none">

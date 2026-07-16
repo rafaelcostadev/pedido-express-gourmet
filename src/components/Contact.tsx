@@ -6,7 +6,7 @@ export function Contact() {
   const mapsEmbed = `https://www.google.com/maps?q=${encodeURIComponent(COMPANY.mapsQuery)}&output=embed`;
   const mapsOpen = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(COMPANY.mapsQuery)}`;
   return (
-    <section id="contato" className="py-20 lg:py-28 bg-brand-cream/60">
+    <section id="contato" className="py-20 lg:py-20 bg-brand-cream/60">
       <div className="container-x grid lg:grid-cols-2 gap-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

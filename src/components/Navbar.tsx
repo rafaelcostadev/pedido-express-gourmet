@@ -59,7 +59,7 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-x flex items-center justify-between h-20 lg:h-24">
+      <div className="container-x flex items-center justify-between h-24 lg:h-28">
         <a
           href="#inicio"
           onClick={handleAnchorClick("inicio")}
@@ -69,7 +69,7 @@ export function Navbar() {
           <img
             src={logoUrl}
             alt="Salgados e Churros Fast"
-            className={`h-16 lg:h-20 w-auto transition ${dark ? "drop-shadow-lg" : ""}`}
+            className={`h-20 sm:h-24 lg:h-28 w-auto object-contain transition ${dark ? "drop-shadow-lg" : ""}`}
             loading="eager"
           />
         </a>
