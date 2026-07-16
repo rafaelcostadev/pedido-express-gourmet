@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://pedido-express-gourmet.lovable.app/sitemap.xml
