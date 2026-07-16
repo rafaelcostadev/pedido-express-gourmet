@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 const ctaUrl = "/assets/cta-bg.avif";
 import { COMPANY } from "@/lib/products";
+import { handleAnchorClick } from "@/lib/scroll";
 
 export function CTA() {
   return (
@@ -45,7 +46,11 @@ export function CTA() {
               <MessageCircle className="h-5 w-5" />
               Peça pelo WhatsApp
             </a>
-            <a href="#salgados" className="btn-ghost-light font-semibold">
+            <a
+              href="#salgados"
+              onClick={handleAnchorClick("salgados")}
+              className="btn-ghost-light font-semibold"
+            >
               Ver Cardápio
             </a>
           </div>
