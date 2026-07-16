@@ -1,5 +1,4 @@
 import { Instagram, MapPin, Phone, Clock } from "lucide-react";
-const logoUrl = "/assets/logo.avif";
 import { COMPANY } from "@/lib/products";
 import { handleAnchorClick } from "@/lib/scroll";
 
