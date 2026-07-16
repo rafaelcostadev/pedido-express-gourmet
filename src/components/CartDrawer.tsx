@@ -1,12 +1,32 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Minus, Plus, ShoppingBag, Trash2, X, MessageCircle } from "lucide-react";
+import { Minus, Plus, ShoppingBag, Trash2, X, MessageCircle, CreditCard, QrCode, Banknote, Store, Bike } from "lucide-react";
 import { useState } from "react";
-import { useCart } from "@/lib/cart";
+import { useCart, type PaymentMethod, type DeliveryMethod } from "@/lib/cart";
 import { formatBRL } from "@/lib/products";
 
 export function CartDrawer() {
   const { items, isOpen, close, inc, dec, remove, total, checkoutWhatsApp, count } = useCart();
   const [notes, setNotes] = useState("");
+  const [payment, setPayment] = useState<PaymentMethod | null>(null);
+  const [delivery, setDelivery] = useState<DeliveryMethod | null>(null);
+  const [error, setError] = useState<"payment" | "delivery" | null>(null);
+
+  const handleCheckout = () => {
+    if (!payment) { setError("payment"); return; }
+    if (!delivery) { setError("delivery"); return; }
+    setError(null);
+    checkoutWhatsApp({ notes, payment, delivery });
+  };
+
+  const paymentOptions: { id: PaymentMethod; label: string; Icon: typeof CreditCard }[] = [
+    { id: "cartao", label: "Cartão", Icon: CreditCard },
+    { id: "pix", label: "Pix", Icon: QrCode },
+    { id: "dinheiro", label: "Dinheiro", Icon: Banknote },
+  ];
+  const deliveryOptions: { id: DeliveryMethod; label: string; Icon: typeof Store }[] = [
+    { id: "retirada", label: "Retirar no local", Icon: Store },
+    { id: "delivery", label: "Delivery", Icon: Bike },
+  ];
 
   return (
     <AnimatePresence>
