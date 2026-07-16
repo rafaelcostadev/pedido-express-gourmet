@@ -18,14 +18,6 @@ export function Footer() {
     <footer style={{ backgroundColor: "#1D1D1D" }} className="text-white/85 pt-20 pb-8">
       <div className="container-x grid md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
         <div className="lg:col-span-4 flex flex-col gap-5">
-          <div className="w-56 h-24 flex items-center">
-            <img
-              src={logoUrl}
-              alt="Salgados e Churros Fast"
-              className="w-full h-full object-contain object-left"
-              loading="lazy"
-            />
-          </div>
           <p className="text-sm text-white/65 leading-relaxed max-w-sm">
             Salgados e churros artesanais que fazem sucesso em qualquer festa.
             Feitos com carinho, prontos para o seu momento especial.
