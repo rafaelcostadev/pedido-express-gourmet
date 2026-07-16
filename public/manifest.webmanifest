@@ -1,0 +1,13 @@
+{
+  "name": "Salgados Churros Fast",
+  "short_name": "Salgados Fast",
+  "description": "Salgados congelados artesanais e mini churros recheados em Taboão da Serra.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#c93a2a",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

@@ -40,7 +40,7 @@ export function Products() {
               <div className="relative h-[300px] sm:h-[340px] bg-gradient-to-br from-brand-yellow/25 to-brand-cream overflow-hidden">
                 <img
                   src={p.image}
-                  alt={p.name}
+                  alt={`${p.name} congelada artesanal para festas`}
                   loading="lazy"
                   decoding="async"
                   className="absolute inset-0 h-full w-full object-contain p-6 transition-transform duration-700 group-hover:scale-110"

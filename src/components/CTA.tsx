@@ -10,9 +10,10 @@ export function CTA() {
       <div className="absolute inset-0 -z-10">
         <img
           src={ctaUrl}
-          alt="Família reunida em festa de aniversário com salgados e churros"
+          alt="Família reunida em festa de aniversário com salgados congelados e churros artesanais"
           className="h-full w-full object-cover"
           loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-black/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
