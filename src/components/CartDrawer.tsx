@@ -1,12 +1,32 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Minus, Plus, ShoppingBag, Trash2, X, MessageCircle } from "lucide-react";
+import { Minus, Plus, ShoppingBag, Trash2, X, MessageCircle, CreditCard, QrCode, Banknote, Store, Bike } from "lucide-react";
 import { useState } from "react";
-import { useCart } from "@/lib/cart";
+import { useCart, type PaymentMethod, type DeliveryMethod } from "@/lib/cart";
 import { formatBRL } from "@/lib/products";
 
 export function CartDrawer() {
   const { items, isOpen, close, inc, dec, remove, total, checkoutWhatsApp, count } = useCart();
   const [notes, setNotes] = useState("");
+  const [payment, setPayment] = useState<PaymentMethod | null>(null);
+  const [delivery, setDelivery] = useState<DeliveryMethod | null>(null);
+  const [error, setError] = useState<"payment" | "delivery" | null>(null);
+
+  const handleCheckout = () => {
+    if (!payment) { setError("payment"); return; }
+    if (!delivery) { setError("delivery"); return; }
+    setError(null);
+    checkoutWhatsApp({ notes, payment, delivery });
+  };
+
+  const paymentOptions: { id: PaymentMethod; label: string; Icon: typeof CreditCard }[] = [
+    { id: "cartao", label: "Cartão", Icon: CreditCard },
+    { id: "pix", label: "Pix", Icon: QrCode },
+    { id: "dinheiro", label: "Dinheiro", Icon: Banknote },
+  ];
+  const deliveryOptions: { id: DeliveryMethod; label: string; Icon: typeof Store }[] = [
+    { id: "retirada", label: "Retirar no local", Icon: Store },
+    { id: "delivery", label: "Delivery", Icon: Bike },
+  ];
 
   return (
     <AnimatePresence>
@@ -119,7 +139,57 @@ export function CartDrawer() {
             </div>
 
             {items.length > 0 && (
-              <div className="border-t border-black/5 px-6 py-5 space-y-4 bg-white">
+              <div className="border-t border-black/5 px-6 py-5 space-y-5 bg-white">
+                <div className="grid gap-2">
+                  <label className="text-xs font-bold text-brand-graphite">Como deseja pagar?</label>
+                  <div className={`grid grid-cols-3 gap-2 rounded-xl p-1 ${error === "payment" ? "ring-2 ring-brand-red/60 bg-brand-red/5" : ""}`}>
+                    {paymentOptions.map(({ id, label, Icon }) => {
+                      const active = payment === id;
+                      return (
+                        <button
+                          key={id}
+                          type="button"
+                          role="radio"
+                          aria-checked={active}
+                          onClick={() => { setPayment(id); if (error === "payment") setError(null); }}
+                          className={`flex flex-col items-center justify-center gap-1.5 rounded-xl px-2 py-3 text-xs font-bold border transition ${active ? "bg-brand-red text-white border-brand-red shadow-brand" : "bg-brand-cream/60 text-brand-graphite border-transparent hover:bg-brand-cream"}`}
+                        >
+                          <Icon className="h-5 w-5" />
+                          {label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {error === "payment" && (
+                    <p className="text-xs font-semibold text-brand-red">Selecione uma forma de pagamento.</p>
+                  )}
+                </div>
+
+                <div className="grid gap-2">
+                  <label className="text-xs font-bold text-brand-graphite">Como deseja receber?</label>
+                  <div className={`grid grid-cols-2 gap-2 rounded-xl p-1 ${error === "delivery" ? "ring-2 ring-brand-red/60 bg-brand-red/5" : ""}`}>
+                    {deliveryOptions.map(({ id, label, Icon }) => {
+                      const active = delivery === id;
+                      return (
+                        <button
+                          key={id}
+                          type="button"
+                          role="radio"
+                          aria-checked={active}
+                          onClick={() => { setDelivery(id); if (error === "delivery") setError(null); }}
+                          className={`flex items-center justify-center gap-2 rounded-xl px-3 py-3 text-sm font-bold border transition ${active ? "bg-brand-red text-white border-brand-red shadow-brand" : "bg-brand-cream/60 text-brand-graphite border-transparent hover:bg-brand-cream"}`}
+                        >
+                          <Icon className="h-5 w-5" />
+                          {label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {error === "delivery" && (
+                    <p className="text-xs font-semibold text-brand-red">Selecione uma forma de recebimento.</p>
+                  )}
+                </div>
+
                 <div className="grid gap-2">
                   <label className="text-xs font-bold text-brand-graphite">
                     Alguma observação sobre seu pedido? (opcional)
@@ -138,7 +208,7 @@ export function CartDrawer() {
                   <span className="text-2xl font-extrabold text-brand-graphite">{formatBRL(total)}</span>
                 </div>
                 <button
-                  onClick={() => checkoutWhatsApp({ notes })}
+                  onClick={handleCheckout}
                   className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp text-white font-bold px-6 py-4 text-base shadow-[0_15px_40px_-15px_oklch(0.68_0.17_150/0.7)] hover:brightness-110 hover:-translate-y-0.5 transition"
                 >
                   <MessageCircle className="h-5 w-5" />

@@ -55,7 +55,20 @@ type CartCtx = {
   dec: (id: string) => void;
   remove: (id: string) => void;
   clear: () => void;
-  checkoutWhatsApp: (data: { notes: string }) => void;
+  checkoutWhatsApp: (data: { notes: string; payment: PaymentMethod; delivery: DeliveryMethod }) => void;
+};
+
+export type PaymentMethod = "cartao" | "pix" | "dinheiro";
+export type DeliveryMethod = "retirada" | "delivery";
+
+const paymentLabels: Record<PaymentMethod, string> = {
+  cartao: "Cartão",
+  pix: "Pix",
+  dinheiro: "Dinheiro",
+};
+const deliveryLabels: Record<DeliveryMethod, string> = {
+  retirada: "Retirada no local",
+  delivery: "Delivery",
 };
 
 const Ctx = createContext<CartCtx | null>(null);
@@ -83,7 +96,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       dec: (id) => dispatch({ type: "dec", id }),
       remove: (id) => dispatch({ type: "remove", id }),
       clear: () => dispatch({ type: "clear" }),
-      checkoutWhatsApp: ({ notes }) => {
+      checkoutWhatsApp: ({ notes, payment, delivery }) => {
         const lines = [
           "Olá! Gostaria de fazer esse pedido:",
           "",
@@ -92,6 +105,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
           ),
           "",
           `Total: ${formatBRL(total)}`,
+          "",
+          `💳 Forma de pagamento:`,
+          paymentLabels[payment],
+          "",
+          `📦 Forma de recebimento:`,
+          deliveryLabels[delivery],
           ...(notes && notes.trim()
             ? ["", "📝 Observação:", notes.trim()]
             : []),
