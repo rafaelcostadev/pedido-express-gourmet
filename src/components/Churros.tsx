@@ -22,13 +22,13 @@ export function Churros() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="relative order-2 lg:order-1"
+          className="relative order-1 lg:order-1 -mb-6 lg:mb-0"
         >
           <div className="absolute inset-8 bg-brand-yellow/30 blur-3xl rounded-full" />
           <img
             src={churrosProduct.image}
             alt="Churros artesanal recheado com doce de leite"
-            className="relative w-full max-w-[40rem] mx-auto drop-shadow-[0_25px_45px_rgba(0,0,0,0.55)]"
+            className="relative w-[98%] sm:w-full max-w-[40rem] mx-auto drop-shadow-[0_25px_45px_rgba(0,0,0,0.55)]"
             loading="lazy"
           />
         </motion.div>
@@ -38,7 +38,7 @@ export function Churros() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="order-1 lg:order-2"
+          className="order-2 lg:order-2"
         >
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-yellow/15 border border-brand-yellow/30 px-4 py-2 text-[11px] font-bold tracking-[0.25em] uppercase text-brand-yellow">
             <Sparkles className="h-3.5 w-3.5" /> Exclusivo da casa
