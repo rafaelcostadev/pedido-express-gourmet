@@ -59,7 +59,7 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-x flex items-center justify-between h-20 lg:h-24">
+      <div className="container-x flex items-center justify-between h-24 lg:h-28">
         <a
           href="#inicio"
           onClick={handleAnchorClick("inicio")}
