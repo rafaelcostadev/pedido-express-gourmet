@@ -25,6 +25,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
+      <SmoothAnchors />
       <Navbar />
       <main>
         <Hero />
