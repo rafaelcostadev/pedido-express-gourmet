@@ -110,18 +110,19 @@ export function Navbar() {
       <AnimatePresence>
         {openMobile && (
           <motion.div
-            className="fixed inset-0 z-50 lg:hidden"
+            className="fixed inset-0 z-[100] lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
           >
-            <div className="absolute inset-0 bg-black/50" onClick={() => setOpenMobile(false)} />
+            <div className="absolute inset-0 bg-brand-graphite/80 backdrop-blur-sm" onClick={() => setOpenMobile(false)} />
             <motion.aside
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 28, stiffness: 260 }}
-              className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white p-6 flex flex-col gap-6 shadow-elevated"
+              initial={{ x: "100%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "100%", opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 280 }}
+              className="absolute right-0 top-0 h-[100dvh] w-full bg-white p-6 flex flex-col gap-6 shadow-elevated overflow-y-auto"
             >
               <div className="flex justify-between items-center">
                 <img src={logoUrl} alt="" className="h-14 w-auto" />
