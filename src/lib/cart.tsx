@@ -55,7 +55,20 @@ type CartCtx = {
   dec: (id: string) => void;
   remove: (id: string) => void;
   clear: () => void;
-  checkoutWhatsApp: (data: { notes: string }) => void;
+  checkoutWhatsApp: (data: { notes: string; payment: PaymentMethod; delivery: DeliveryMethod }) => void;
+};
+
+export type PaymentMethod = "cartao" | "pix" | "dinheiro";
+export type DeliveryMethod = "retirada" | "delivery";
+
+const paymentLabels: Record<PaymentMethod, string> = {
+  cartao: "Cartão",
+  pix: "Pix",
+  dinheiro: "Dinheiro",
+};
+const deliveryLabels: Record<DeliveryMethod, string> = {
+  retirada: "Retirada no local",
+  delivery: "Delivery",
 };
 
 const Ctx = createContext<CartCtx | null>(null);
