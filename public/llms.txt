@@ -31,4 +31,5 @@ Fabricação artesanal de salgados congelados (coxinha, kibe, risole, esfiha, en
 ## Páginas
 
 - [Início](/): Catálogo de produtos, diferenciais, FAQ e contato
+- [Manual de Fritura](/manual-de-fritura): Como fritar salgado congelado — temperatura do óleo, tempo, coxinha congelada e air fryer
 - [Sitemap](/sitemap.xml): Mapa do site
