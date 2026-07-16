@@ -12,6 +12,7 @@ import { Footer } from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { SmoothAnchors } from "@/lib/scroll";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -24,6 +25,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
+      <SmoothAnchors />
       <Navbar />
       <main>
         <Hero />
