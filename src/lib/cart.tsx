@@ -96,7 +96,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       dec: (id) => dispatch({ type: "dec", id }),
       remove: (id) => dispatch({ type: "remove", id }),
       clear: () => dispatch({ type: "clear" }),
-      checkoutWhatsApp: ({ notes }) => {
+      checkoutWhatsApp: ({ notes, payment, delivery }) => {
         const lines = [
           "Olá! Gostaria de fazer esse pedido:",
           "",
@@ -105,6 +105,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
           ),
           "",
           `Total: ${formatBRL(total)}`,
+          "",
+          `💳 Forma de pagamento:`,
+          paymentLabels[payment],
+          "",
+          `📦 Forma de recebimento:`,
+          deliveryLabels[delivery],
           ...(notes && notes.trim()
             ? ["", "📝 Observação:", notes.trim()]
             : []),
