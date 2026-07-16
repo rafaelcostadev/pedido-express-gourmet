@@ -44,6 +44,10 @@ export const Route = createFileRoute("/")({
           ],
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(faqJsonLd),
+      },
     ],
   }),
 });
@@ -58,6 +62,7 @@ function Index() {
         <Products />
         <Churros />
         <HowItWorks />
+        <FAQ />
         <About />
         <CTA />
         <Contact />
