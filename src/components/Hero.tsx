@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { MessageCircle, ArrowDown } from "lucide-react";
 const heroUrl = "/assets/hero-bg.avif";
 import { COMPANY } from "@/lib/products";
+import { handleAnchorClick } from "@/lib/scroll";
 
 export function Hero() {
   return (
@@ -58,7 +59,11 @@ export function Hero() {
               <MessageCircle className="h-5 w-5" />
               Peça pelo WhatsApp
             </a>
-            <a href="#salgados" className="btn-ghost-light font-semibold">
+            <a
+              href="#salgados"
+              onClick={handleAnchorClick("salgados")}
+              className="btn-ghost-light font-semibold"
+            >
               Ver Cardápio
             </a>
           </div>
@@ -84,6 +89,7 @@ export function Hero() {
 
         <motion.a
           href="#salgados"
+          onClick={handleAnchorClick("salgados")}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}

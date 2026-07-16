@@ -1,14 +1,15 @@
 import { Instagram, MapPin, Phone, Clock } from "lucide-react";
 const logoUrl = "/assets/logo.avif";
 import { COMPANY } from "@/lib/products";
+import { handleAnchorClick } from "@/lib/scroll";
 
 const links = [
-  { href: "#inicio", label: "Início" },
-  { href: "#salgados", label: "Salgados" },
-  { href: "#churros", label: "Churros" },
-  { href: "#como-funciona", label: "Como Funciona" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#contato", label: "Contato" },
+  { id: "inicio", label: "Início" },
+  { id: "salgados", label: "Salgados" },
+  { id: "churros", label: "Churros" },
+  { id: "como-funciona", label: "Como Funciona" },
+  { id: "sobre", label: "Sobre" },
+  { id: "contato", label: "Contato" },
 ];
 
 export function Footer() {
@@ -44,8 +45,12 @@ export function Footer() {
           <h4 className="text-white font-bold text-sm uppercase tracking-[0.2em] mb-5">Navegação</h4>
           <ul className="flex flex-col gap-3 text-sm">
             {links.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className="text-white/70 hover:text-brand-yellow transition">
+              <li key={l.id}>
+                <a
+                  href={`#${l.id}`}
+                  onClick={handleAnchorClick(l.id)}
+                  className="text-white/70 hover:text-brand-yellow transition"
+                >
                   {l.label}
                 </a>
               </li>

@@ -3,14 +3,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, ShoppingBag, X } from "lucide-react";
 const logoUrl = "/assets/logo.avif";
 import { useCart } from "@/lib/cart";
+import { handleAnchorClick, scrollToSection } from "@/lib/scroll";
 
 const links = [
-  { href: "#inicio", label: "Início" },
-  { href: "#salgados", label: "Salgados" },
-  { href: "#churros", label: "Churros" },
-  { href: "#como-funciona", label: "Como Funciona" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#contato", label: "Contato" },
+  { id: "inicio", label: "Início" },
+  { id: "salgados", label: "Salgados" },
+  { id: "churros", label: "Churros" },
+  { id: "como-funciona", label: "Como Funciona" },
+  { id: "sobre", label: "Sobre" },
+  { id: "contato", label: "Contato" },
 ];
 
 export function Navbar() {
@@ -37,6 +38,16 @@ export function Navbar() {
 
   const dark = !scrolled;
 
+  const closeMobileAndScroll = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    setOpenMobile(false);
+    // Let the exit animation start and body overflow reset before scrolling
+    setTimeout(() => scrollToSection(id), 260);
+    if (window.history.replaceState) {
+      window.history.replaceState(null, "", `#${id}`);
+    }
+  };
+
   return (
     <motion.header
       initial={{ y: -80 }}
@@ -49,7 +60,12 @@ export function Navbar() {
       }`}
     >
       <div className="container-x flex items-center justify-between h-20 lg:h-24">
-        <a href="#inicio" className="flex items-center" aria-label="Salgados e Churros Fast">
+        <a
+          href="#inicio"
+          onClick={handleAnchorClick("inicio")}
+          className="flex items-center"
+          aria-label="Salgados e Churros Fast"
+        >
           <img
             src={logoUrl}
             alt="Salgados e Churros Fast"
@@ -61,8 +77,9 @@ export function Navbar() {
         <nav aria-label="Menu principal" className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
             <a
-              key={l.href}
-              href={l.href}
+              key={l.id}
+              href={`#${l.id}`}
+              onClick={handleAnchorClick(l.id)}
               className={`text-sm font-medium transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-brand-red after:transition-all hover:after:w-full ${
                 dark ? "text-white/90 hover:text-white" : "text-brand-graphite hover:text-brand-red"
               }`}
@@ -90,6 +107,7 @@ export function Navbar() {
           </button>
           <a
             href="#salgados"
+            onClick={handleAnchorClick("salgados")}
             className="hidden sm:inline-flex items-center gap-2 rounded-full bg-brand-red text-white px-5 py-2.5 font-semibold text-sm shadow-brand hover:brightness-110 hover:-translate-y-0.5 transition"
           >
             Peça Agora
@@ -137,16 +155,20 @@ export function Navbar() {
               <nav className="flex flex-col gap-1">
                 {links.map((l) => (
                   <a
-                    key={l.href}
-                    href={l.href}
-                    onClick={() => setOpenMobile(false)}
+                    key={l.id}
+                    href={`#${l.id}`}
+                    onClick={closeMobileAndScroll(l.id)}
                     className="px-3 py-3 rounded-xl text-lg font-semibold text-brand-graphite hover:bg-muted transition"
                   >
                     {l.label}
                   </a>
                 ))}
               </nav>
-              <a href="#salgados" onClick={() => setOpenMobile(false)} className="btn-primary mt-auto">
+              <a
+                href="#salgados"
+                onClick={closeMobileAndScroll("salgados")}
+                className="btn-primary mt-auto"
+              >
                 Peça Agora
               </a>
             </motion.aside>
