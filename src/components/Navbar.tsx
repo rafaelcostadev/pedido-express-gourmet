@@ -69,7 +69,7 @@ export function Navbar() {
           <img
             src={logoUrl}
             alt="Salgados e Churros Fast"
-            className={`h-16 lg:h-20 w-auto transition ${dark ? "drop-shadow-lg" : ""}`}
+            className={`h-20 sm:h-24 lg:h-28 w-auto object-contain transition ${dark ? "drop-shadow-lg" : ""}`}
             loading="eager"
           />
         </a>
